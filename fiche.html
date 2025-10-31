@@ -1,0 +1,111 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fiche d'identité - Obsidian Chrome</title>
+    <link rel="stylesheet" href="fiche.css" />
+    <script src="https://cdn.jsdelivr.net/npm/lucide/dist/lucide.min.js"></script>
+  </head>
+  <body>
+    <!-- Digicode -->
+    <div id="accessScreen">
+      <div id="digicode">
+        <h1>Accès restreint</h1>
+        <p>Entrez le code d'autorisation</p>
+        <div id="displayCode">····</div>
+        <div id="buttons"></div>
+
+        <!-- Ligne de boutons spéciaux -->
+        <div id="special-buttons">
+          <button id="btnSuppr" class="special-btn suppr">❌</button>
+          <button id="btnValider" class="special-btn valider">✅</button>
+        </div>
+
+        <p id="errorMsg" class="hidden">Code incorrect</p>
+      </div>
+    </div>
+
+    <!-- Fiche -->
+    <div id="fiche" class="fade-in">
+      <header>
+        <h1>Fiche d'identité</h1>
+        <p>Obsidian Chrome</p>
+
+        <div id="musicPlayer">
+          <div class="music-controls">
+            <button id="playPauseBtn">▶</button>
+            <span id="trackTitle">Nyhxia - SiLvEr.exe</span>
+            <div class="volume-group">
+              <label for="volumeSlider">🔊</label>
+              <input
+                type="range"
+                id="volumeSlider"
+                min="0"
+                max="100"
+                value="40"
+              />
+            </div>
+          </div>
+          <input type="range" id="progressBar" value="0" min="0" max="100" />
+        </div>
+      </header>
+
+      <section class="flex-section">
+        <div class="image-section">
+          <div class="carousel-buttons">
+            <button id="btnCivil">Civil</button>
+            <button id="btnChasseur">Chasseur</button>
+          </div>
+          <img
+            id="ficheImage"
+            src="/Media/25102025_01.png"
+            alt="Selim Dousan (civil)"
+          />
+        </div>
+
+        <div class="profile-section">
+          <article>
+            <h2>Profil général & Statut</h2>
+            <p><span>Nom complet :</span> Selim Dousan</p>
+            <p><span>Alias :</span> Obsidian Chrome</p>
+            <p><span>Âge :</span> 33 ans</p>
+            <p><span>Origine :</span> Thanalan</p>
+            <p><span>Rang :</span> Élite</p>
+            <p><span>Statut :</span> Actif</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="grid-section">
+        <article>
+          <h2>Compétences & Spécialisation</h2>
+          <ul>
+            <li>Expert en traque et capture</li>
+            <li>Maîtrise des armes à feu, des pistolames et des gadgets</li>
+            <li>Discrétion, précision et infiltration</li>
+          </ul>
+        </article>
+        <article>
+          <h2>Équipement enregistré</h2>
+          <ul>
+            <li>
+              Bras gauche expérimental en titane - Modèle X-01 classe Rudiger
+            </li>
+            <li>
+              Visor N7 (vision thermique & assistance à la visée) - Modèle
+              modifié classe Rudiger
+            </li>
+            <li>Armure Chrome-Tek - Modèle modifié classe Rudiger</li>
+            <li>Pistolets Malorian 148 - Modèle modifié classe Rudiger</li>
+          </ul>
+        </article>
+      </section>
+
+      <footer>Accès restreint Niveau Sigma - Secteur Odyssée</footer>
+    </div>
+
+    <script src="fiche.js"></script>
+  </body>
+</html>

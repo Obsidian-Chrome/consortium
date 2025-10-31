@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Consortium & Consor'Bar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container header-flex">
+            <a href="index.html" class="logo">LE CONSORTIUM</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="consortium.html">Le Consortium</a></li>
+                    <li><a href="bar.html">Le Consor'Bar</a></li>
+                    <li><a href="equipe.html">Équipe</a></li>
+                    <li><a href="programme.html">Programme</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Contactez-nous</h1>
+            <p>Une mission à confier, une réservation au bar ou une question ? Notre équipe vous répond sous 24h.</p>
+        </div>
+    </section>
+    <main>
+        <section class="contact">
+            <div class="container">
+                <form>
+                    <div>
+                        <label for="nom">Nom complet</label>
+                        <input type="text" id="nom" placeholder="Votre nom" required>
+                    </div>
+                    <div>
+                        <label for="objet">Objet de votre demande</label>
+                        <select id="objet" required>
+                            <option value="">- Choisir une option -</option>
+                            <option value="reservation">Réservation bar</option>
+                            <option value="mission">Prime Consortium</option>
+                            <option value="recrutement">Candidature</option>
+                            <option value="info">Partenariat</option>
+                            <option value="autre">Autre</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="message">Message</label>
+                        <textarea id="message" placeholder="Décrivez votre demande..." required></textarea>
+                    </div>
+                    <button type="submit" class="cta">Envoyer le message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            &copy; 2025 Consortium & Consor'Bar. Tous droits réservés.
+        </div>
+    </footer>
+    <script src="main.js"></script>
+</body>
+</html>
