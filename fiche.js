@@ -72,7 +72,7 @@ function handleButtonClick(value, btnElement) {
 // Gestion des sons
 function playSound(type) {
   const audio = new Audio(
-    type === "success" ? "/Media/success_code.mp3" : "/Media/error_code.mp3"
+    type === "success" ? "Media/success_code.mp3" : "Media/error_code.mp3"
   );
   audio.volume = 0.3;
   audio.play();
