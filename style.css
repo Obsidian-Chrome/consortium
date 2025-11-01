@@ -126,7 +126,7 @@ nav a:hover::after {
 
 .hero {
     min-height: 70vh;
-    background: linear-gradient(rgba(10, 14, 23, 0.75), rgba(18, 22, 31, 0.85)), url('/Media/Consortium_BG.webp');
+    background: linear-gradient(rgba(10, 14, 23, 0.75), rgba(18, 22, 31, 0.85)), url('Media/Consortium_BG.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
