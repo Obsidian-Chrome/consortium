@@ -49,6 +49,11 @@ function handleButtonClick(value, btnElement) {
     if (inputCode === correctCode) {
       // Code correct : accès accordé
       playSound("success");
+      setTimeout(() => {
+        const loadingSound = new Audio("Media/digital_loading.mp3");
+        loadingSound.volume = 0.2;
+        loadingSound.play().catch(() => {});
+      }, 500);
       showLoadingScreen();
     } else {
       // Code incorrect : affichage erreur
@@ -143,6 +148,7 @@ function playSound(type) {
 
 // ===== CAROUSEL D'IMAGES =====
 btnCivil.addEventListener("click", () => {
+  playSound("input");
   ficheImage.src = "Media/25102025_01.png";
   ficheImage.alt = "Selim Dousan (civil)";
   btnCivil.classList.add("active");
@@ -150,6 +156,7 @@ btnCivil.addEventListener("click", () => {
 });
 
 btnChasseur.addEventListener("click", () => {
+  playSound("input");
   ficheImage.src = "Media/22102025_01.png";
   ficheImage.alt = "Obsidian Chrome (chasseur)";
   btnChasseur.classList.add("active");
@@ -169,17 +176,18 @@ audio.volume = volumeSlider.value / 100;
 
 // Lecture / Pause
 playPauseBtn.addEventListener("click", () => {
+  playSound("input");
   if (!isPlaying) {
     audio.play().then(() => {
       isPlaying = true;
-      playPauseBtn.textContent = "⏸";
+      playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
     }).catch(() => {
       console.log("Lecture audio impossible");
     });
   } else {
     audio.pause();
     isPlaying = false;
-    playPauseBtn.textContent = "▶";
+    playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
   }
 });
 
@@ -205,6 +213,101 @@ volumeSlider.addEventListener("input", () => {
 // Réinitialisation à la fin de la lecture
 audio.addEventListener("ended", () => {
   isPlaying = false;
-  playPauseBtn.textContent = "▶";
+  playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
   progressBar.value = 0;
 });
+
+// ===== LECTEUR AUDIO 2 =====
+const audio2 = new Audio("Media/CyberReality_Montee.mp3");
+const playPauseBtn2 = document.getElementById("playPauseBtn2");
+const progressBar2 = document.getElementById("progressBar2");
+const volumeSlider2 = document.getElementById("volumeSlider2");
+
+let isPlaying2 = false;
+
+audio2.volume = volumeSlider2.value / 100;
+
+playPauseBtn2.addEventListener("click", () => {
+  playSound("input");
+  if (!isPlaying2) {
+    audio2.play().then(() => {
+      isPlaying2 = true;
+      playPauseBtn2.innerHTML = '<i class="fas fa-pause"></i>';
+    }).catch(() => {
+      console.log("Lecture audio impossible");
+    });
+  } else {
+    audio2.pause();
+    isPlaying2 = false;
+    playPauseBtn2.innerHTML = '<i class="fas fa-play"></i>';
+  }
+});
+
+audio2.addEventListener("timeupdate", () => {
+  if (!isNaN(audio2.duration) && audio2.duration > 0) {
+    progressBar2.value = (audio2.currentTime / audio2.duration) * 100;
+  }
+});
+
+progressBar2.addEventListener("input", () => {
+  if (!isNaN(audio2.duration) && audio2.duration > 0) {
+    audio2.currentTime = (progressBar2.value / 100) * audio2.duration;
+  }
+});
+
+volumeSlider2.addEventListener("input", () => {
+  audio2.volume = volumeSlider2.value / 100;
+});
+
+audio2.addEventListener("ended", () => {
+  isPlaying2 = false;
+  playPauseBtn2.innerHTML = '<i class="fas fa-play"></i>';
+  progressBar2.value = 0;
+});
+
+const medSection = document.querySelector('.medical-section');
+const medChartVideo = document.getElementById('medChart');
+if (medSection && medChartVideo) {
+  const stopAt = 4;
+  let hasPlayed = false;
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting && !hasPlayed) {
+        medChartVideo.currentTime = 0;
+        medChartVideo.play().catch(() => {});
+        hasPlayed = true;
+      }
+    });
+  }, { threshold: 0.4 });
+  io.observe(medSection);
+  medChartVideo.addEventListener('timeupdate', () => {
+    if (medChartVideo.currentTime >= stopAt) {
+      medChartVideo.pause();
+      medChartVideo.currentTime = stopAt;
+    }
+  });
+}
+
+const medInfoTitle = document.getElementById("medInfoTitle");
+const medInfoText = document.getElementById("medInfoText");
+const medDots = document.querySelectorAll(".med-dot");
+if (medInfoTitle && medInfoText && medDots.length) {
+  const selectDot = (dot) => {
+    playSound("input");
+    medDots.forEach((d) => d.classList.remove("active"));
+    dot.classList.add("active");
+    const t = dot.getAttribute("data-title") || "Détails médicaux";
+    const x = dot.getAttribute("data-text") || "";
+    medInfoTitle.textContent = t;
+    medInfoText.textContent = x;
+  };
+  medDots.forEach((dot) => {
+    dot.addEventListener("click", () => selectDot(dot));
+    dot.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        selectDot(dot);
+      }
+    });
+  });
+}
