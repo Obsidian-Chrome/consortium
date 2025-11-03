@@ -4,9 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fiche d'identité - Obsidian Chrome | Consortium</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="fiche.css">
 </head>
 <body>
+    <!-- Vidéo de fond en boucle -->
+    <div id="bgVideo">
+        <video autoplay muted loop playsinline>
+            <source src="Media/loop_bg.webm" type="video/webm">
+        </video>
+    </div>
+
     <!-- Écran d'accès avec digicode -->
     <div id="accessScreen">
         <div id="digicode">
@@ -21,16 +29,16 @@
             
             <div id="specialButtons">
                 <button id="btnSuppr" class="special-btn suppr">
-                    <span>❌</span>
-                    <span class="btn-label">Effacer</span>
+                    <i class="fas fa-backspace"></i>
+                    <span class="btn-label">Suppr</span>
                 </button>
                 <button id="btnValider" class="special-btn valider">
-                    <span>✅</span>
+                    <i class="fas fa-check-circle"></i>
                     <span class="btn-label">Valider</span>
                 </button>
             </div>
             
-            <p id="errorMsg">⚠ CODE INCORRECT</p>
+            <p id="errorMsg"><i class="fas fa-exclamation-triangle"></i> CODE INCORRECT</p>
         </div>
     </div>
 
@@ -51,16 +59,30 @@
                     <p class="subtitle">Obsidian Chrome</p>
                 </div>
                 
-                <div id="musicPlayer">
-                    <div class="music-controls">
-                        <button id="playPauseBtn" class="music-btn">▶</button>
-                        <span id="trackTitle">Nyhxia - SiLvEr.exe</span>
-                        <div class="volume-group">
-                            <span class="volume-icon">🔊</span>
-                            <input type="range" id="volumeSlider" min="0" max="100" value="40">
+                <div class="music-players">
+                    <div id="musicPlayer" class="music-player">
+                        <div class="music-controls">
+                            <button id="playPauseBtn" class="music-btn"><i class="fas fa-play"></i></button>
+                            <span id="trackTitle">Nyhxia - SiLvEr.exe</span>
+                            <div class="volume-group">
+                                <i class="fas fa-volume-up volume-icon"></i>
+                                <input type="range" id="volumeSlider" min="0" max="100" value="40">
+                            </div>
                         </div>
+                        <input type="range" id="progressBar" value="0" min="0" max="100">
                     </div>
-                    <input type="range" id="progressBar" value="0" min="0" max="100">
+
+                    <div id="musicPlayer2" class="music-player">
+                        <div class="music-controls">
+                            <button id="playPauseBtn2" class="music-btn"><i class="fas fa-play"></i></button>
+                            <span id="trackTitle2">Cyber Reality - Montée</span>
+                            <div class="volume-group">
+                                <i class="fas fa-volume-up volume-icon"></i>
+                                <input type="range" id="volumeSlider2" min="0" max="100" value="40">
+                            </div>
+                        </div>
+                        <input type="range" id="progressBar2" value="0" min="0" max="100">
+                    </div>
                 </div>
             </header>
 
@@ -133,9 +155,36 @@
                 </article>
             </section>
 
+            <section class="medical-section">
+                <article class="info-card">
+                    <h2>SECTION MÉDICALE / BLESSURES</h2>
+                    <div class="medical-container">
+                        <div class="med-left">
+                            <div class="med-diagram">
+                                <img class="diagram-image" src="Media/selim_eta.png" alt="Schéma corporel de Selim avec prothèse bras gauche">
+                                <span class="med-dot" style="--x:66%; --y:42%;" tabindex="0" aria-label="Bras gauche" data-title="Bras gauche" data-text="Prothèse modèle X-01 classe Rudiger pour bras gauche. Prodigué à la suite d'une amputation, le bras manquant endommagé par un explosif. Aucun rejet enregistré. Intégrité du patient tranche haute (5% de la population éligible). Omoplate en titane renforcée pour une utilisation optimale du bras."></span>
+                                <span class="med-dot" style="--x:48%; --y:28%;" tabindex="0" aria-label="Général" data-title="Général" data-text="Cicatrices et brûlures dû à l'explosif sur une grande partie du corps (excepté visage). D'autres cicatrices sont plus anciennes."></span>
+                                <span class="med-dot" style="--x:48%; --y:45%;" tabindex="0" aria-label="Bas du dos" data-title="Bas du dos" data-text="Rachis lombaire touché. Reconstruction de vertèbres et rééducation pour retour à l'activité optimale."></span>
+                            </div>
+
+                            <div class="med-video">
+                                <video id="medChart" preload="metadata" muted playsinline>
+                                    <source src="Media/chart_eta.webm" type="video/webm">
+                                </video>
+                            </div>
+                        </div>
+
+                        <div class="med-info" aria-live="polite">
+                            <h3 id="medInfoTitle">Détails médicaux</h3>
+                            <div id="medInfoText" class="med-info-content">Cliquez une zone du schéma pour afficher les détails ici.</div>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
             <!-- Pied de page -->
             <footer class="fiche-footer">
-                <p>⚠ ACCÈS RESTREINT NIVEAU SIGMA - SECTEUR ODYSSÉE ⚠</p>
+                <p><i class="fas fa-exclamation-triangle"></i> ACCÈS RESTREINT NIVEAU SIGMA - SECTEUR ODYSSÉE <i class="fas fa-exclamation-triangle"></i></p>
             </footer>
         </div>
     </div>
