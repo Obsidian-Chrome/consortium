@@ -11,8 +11,6 @@ const fiche = document.getElementById("fiche");
 const buttonsContainer = document.getElementById("buttons");
 const errorMsg = document.getElementById("errorMsg");
 const ficheImage = document.getElementById("ficheImage");
-const btnCivil = document.getElementById("btnCivil");
-const btnChasseur = document.getElementById("btnChasseur");
 const btnSuppr = document.getElementById("btnSuppr");
 const btnValider = document.getElementById("btnValider");
 
@@ -169,21 +167,22 @@ function playSound(type) {
   });
 }
 
-// ===== CAROUSEL D'IMAGES =====
-btnCivil.addEventListener("click", () => {
-  playSound("input");
-  ficheImage.src = "Media/25102025_01.png";
-  ficheImage.alt = "Selim Dousan (civil)";
-  btnCivil.classList.add("active");
-  btnChasseur.classList.remove("active");
-});
+// ===== CAROUSEL D'IMAGES (TOGGLE) =====
+const toggleBtn = document.getElementById("toggleBtn");
 
-btnChasseur.addEventListener("click", () => {
+toggleBtn.addEventListener("click", () => {
   playSound("input");
-  ficheImage.src = "Media/22102025_01.png";
-  ficheImage.alt = "Obsidian Chrome (chasseur)";
-  btnChasseur.classList.add("active");
-  btnCivil.classList.remove("active");
+  const currentMode = toggleBtn.getAttribute("data-mode");
+  
+  if (currentMode === "civil") {
+    ficheImage.src = "Media/22102025_01.png";
+    ficheImage.alt = "Obsidian Chrome (chasseur)";
+    toggleBtn.setAttribute("data-mode", "chasseur");
+  } else {
+    ficheImage.src = "Media/25102025_01.png";
+    ficheImage.alt = "Selim Dousan (civil)";
+    toggleBtn.setAttribute("data-mode", "civil");
+  }
 });
 
 // ===== LECTEUR AUDIO =====
