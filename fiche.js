@@ -30,6 +30,29 @@ buttons.forEach((value) => {
 btnSuppr.addEventListener("click", () => handleButtonClick("Suppr", btnSuppr));
 btnValider.addEventListener("click", () => handleButtonClick("Valider", btnValider));
 
+// ===== GESTION DU CLAVIER =====
+document.addEventListener("keydown", (e) => {
+  if (accessScreen.style.display === "none") return;
+  
+  const key = e.key.toUpperCase();
+  
+  if (key === "BACKSPACE" || key === "DELETE") {
+    e.preventDefault();
+    handleButtonClick("Suppr", btnSuppr);
+  } 
+  else if (key === "ENTER") {
+    e.preventDefault();
+    handleButtonClick("Valider", btnValider);
+  }
+  else if (/^[0-9AB]$/.test(key)) {
+    e.preventDefault();
+    const btn = Array.from(buttonsContainer.children).find(b => b.textContent === key);
+    if (btn) {
+      handleButtonClick(key, btn);
+    }
+  }
+});
+
 // ===== GESTION DU DIGICODE =====
 function handleButtonClick(value, btnElement) {
   // Effet visuel d'activation
