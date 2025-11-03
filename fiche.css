@@ -26,15 +26,33 @@
 }
 
 body {
+    margin: 0;
+    padding: 2rem;
     font-family: var(--font-body);
-    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    background: var(--primary);
     color: var(--text);
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1.5rem;
-    line-height: 1.6;
+}
+
+#bgVideo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    overflow: hidden;
+}
+
+#bgVideo video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: drop-shadow(0 0 8px rgba(0, 217, 255, 0.5)) drop-shadow(0 0 16px rgba(0, 217, 255, 0.3));
+    opacity: 0.3;
 }
 
 /* ===== ÉCRANS ===== */
@@ -52,6 +70,7 @@ body {
     max-width: 100%;
     opacity: 0;
     transition: opacity 0.5s ease-out;
+    filter: drop-shadow(0 0 8px rgba(0, 217, 255, 0.5)) drop-shadow(0 0 16px rgba(0, 217, 255, 0.3));
 }
 
 #loadingScreen.show {
@@ -296,7 +315,13 @@ body {
 }
 
 /* Lecteur audio */
-#musicPlayer {
+.music-players {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.music-player {
     background: rgba(10, 14, 23, 0.6);
     border: 1px solid var(--border);
     border-radius: 12px;
@@ -329,7 +354,8 @@ body {
     box-shadow: 0 0 20px var(--glow);
 }
 
-#trackTitle {
+#trackTitle,
+#trackTitle2 {
     flex: 1;
     text-align: center;
     color: var(--accent);
@@ -352,7 +378,9 @@ body {
 }
 
 #volumeSlider,
-#progressBar {
+#volumeSlider2,
+#progressBar,
+#progressBar2 {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -364,21 +392,27 @@ body {
     transition: var(--transition);
 }
 
-#volumeSlider {
+#volumeSlider,
+#volumeSlider2 {
     width: 80px;
 }
 
-#progressBar {
+#progressBar,
+#progressBar2 {
     width: 100%;
 }
 
 #volumeSlider:hover,
-#progressBar:hover {
+#volumeSlider2:hover,
+#progressBar:hover,
+#progressBar2:hover {
     background: rgba(0, 217, 255, 0.35);
 }
 
 #volumeSlider::-webkit-slider-thumb,
-#progressBar::-webkit-slider-thumb {
+#volumeSlider2::-webkit-slider-thumb,
+#progressBar::-webkit-slider-thumb,
+#progressBar2::-webkit-slider-thumb {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -392,12 +426,16 @@ body {
 }
 
 #volumeSlider::-webkit-slider-thumb:hover,
-#progressBar::-webkit-slider-thumb:hover {
+#volumeSlider2::-webkit-slider-thumb:hover,
+#progressBar::-webkit-slider-thumb:hover,
+#progressBar2::-webkit-slider-thumb:hover {
     transform: scale(1.2);
 }
 
 #volumeSlider::-moz-range-thumb,
-#progressBar::-moz-range-thumb {
+#volumeSlider2::-moz-range-thumb,
+#progressBar::-moz-range-thumb,
+#progressBar2::-moz-range-thumb {
     width: 14px;
     height: 14px;
     border-radius: 50%;
@@ -610,6 +648,120 @@ body {
     color: var(--text-muted);
 }
 
+/* Section médicale */
+.medical-section {
+    margin-bottom: 2rem;
+}
+
+.medical-container {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 1.5rem;
+}
+
+.med-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.med-diagram {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1.3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.diagram-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 0 8px rgba(0, 217, 255, 0.5)) drop-shadow(0 0 16px rgba(0, 217, 255, 0.3));
+    transform: scaleX(-1);
+}
+
+.med-dot {
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    transform: translate(-50%, -50%);
+    width: 14px;
+    height: 14px;
+    background: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--glow-strong), 0 0 20px var(--glow);
+    cursor: pointer;
+    transition: var(--transition);
+    z-index: 10;
+    outline: none;
+}
+
+.med-dot:hover,
+.med-dot:focus {
+    transform: translate(-50%, -50%) scale(1.35);
+    box-shadow: 0 0 14px var(--glow-strong), 0 0 28px var(--glow);
+}
+
+.med-dot.active {
+    box-shadow: 0 0 16px var(--glow-strong), 0 0 32px var(--glow);
+}
+
+.med-video {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 220px;
+}
+
+.med-video video {
+    width: 140%;
+    height: 140%;
+    max-height: 220px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 8px rgba(0, 217, 255, 0.5)) drop-shadow(0 0 16px rgba(0, 217, 255, 0.3));
+    transform: scale(2);
+}
+
+.med-info {
+    background: linear-gradient(180deg, rgba(10,14,23,0.4), rgba(10,14,23,0.7));
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    box-shadow: 0 8px 24px var(--shadow);
+    display: flex;
+    flex-direction: column;
+}
+
+.med-info h3 {
+    color: var(--accent);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 10px var(--glow);
+    font-family: var(--font-heading);
+}
+
+.med-info-content {
+    background: rgba(10, 14, 23, 0.5);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem;
+    flex: 1;
+    color: var(--text);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+@media (max-width: 1200px) and (min-width: 768px) {
+    .med-video video {
+        transform: scale(1.5);
+    }
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     body {
@@ -628,6 +780,10 @@ body {
         font-size: 1.8rem;
     }
     
+    .music-players {
+        grid-template-columns: 1fr;
+    }
+    
     #ficheImage {
         height: 300px;
     }
@@ -635,5 +791,27 @@ body {
     .carousel-btn {
         padding: 0.6rem 1.5rem;
         font-size: 0.8rem;
+    }
+    
+    .medical-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .med-diagram {
+        aspect-ratio: 1 / 1.2;
+    }
+    
+    .med-video {
+        min-height: 180px;
+    }
+    
+    .med-video video {
+        max-height: 180px;
+        transform: scale(2);
+    }
+    
+    .med-dot {
+        width: 12px;
+        height: 12px;
     }
 }
