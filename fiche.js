@@ -13,6 +13,7 @@ const errorMsg = document.getElementById("errorMsg");
 const ficheImage = document.getElementById("ficheImage");
 const btnSuppr = document.getElementById("btnSuppr");
 const btnValider = document.getElementById("btnValider");
+const btnGuest = document.getElementById("btnGuest");
 
 // ===== CRÉATION DU PAVÉ NUMÉRIQUE =====
 const buttons = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B"];
@@ -27,6 +28,17 @@ buttons.forEach((value) => {
 // ===== ÉVÉNEMENTS BOUTONS SPÉCIAUX =====
 btnSuppr.addEventListener("click", () => handleButtonClick("Suppr", btnSuppr));
 btnValider.addEventListener("click", () => handleButtonClick("Valider", btnValider));
+
+// ===== BOUTON ACCÈS INVITÉ =====
+btnGuest.addEventListener("click", () => {
+  playSound("success");
+  setTimeout(() => {
+    const loadingSound = new Audio("Media/digital_loading.mp3");
+    loadingSound.volume = 0.2;
+    loadingSound.play().catch(() => {});
+  }, 500);
+  showLoadingScreen(true);
+});
 
 // ===== GESTION DU CLAVIER =====
 document.addEventListener("keydown", (e) => {
@@ -93,35 +105,30 @@ function handleButtonClick(value, btnElement) {
 }
 
 // Affichage de l'écran de chargement
-function showLoadingScreen() {
+function showLoadingScreen(isGuestMode = false) {
   // Masquer le digicode
   accessScreen.style.display = "none";
   
   // Afficher l'écran de chargement
   loadingScreen.style.display = "flex";
-  setTimeout(() => loadingScreen.classList.add("show"), 50);
+  loadingScreen.classList.add("show");
   
-  // Relancer la vidéo depuis le début
+  // Lancer la vidéo
   loadingVideo.currentTime = 0;
-  loadingVideo.play().catch(() => {
-    console.log("Lecture vidéo impossible");
-  });
+  loadingVideo.play();
   
-  // Après 4 secondes, faire disparaître le loading et afficher la fiche
+  // Attendre la fin de la vidéo (3 secondes)
   setTimeout(() => {
-    // Fade out du loading
-    loadingScreen.classList.add("fade-out");
+    loadingScreen.style.display = "none";
+    loadingScreen.classList.remove("show");
+    fiche.style.display = "block";
     
-    // Après la transition, masquer complètement le loading et afficher la fiche
-    setTimeout(() => {
-      loadingScreen.style.display = "none";
-      loadingScreen.classList.remove("show", "fade-out");
-      
-      // Afficher la fiche avec animation
-      fiche.style.display = "block";
-      setTimeout(() => fiche.classList.add("show"), 50);
-    }, 500); // Durée de la transition fade-out
-  }, 4000); // 4 secondes de loading
+    if (isGuestMode) {
+      fiche.classList.add("guest-mode");
+    }
+    
+    setTimeout(() => fiche.classList.add("show"), 50);
+  }, 3000);
 }
 
 // Affichage de l'erreur
