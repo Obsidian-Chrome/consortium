@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu - Le Consor'Bar</title>
+    <title>Menu - Le Consort</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <header>
@@ -12,148 +13,178 @@
             <a href="index.html" class="logo">LE CONSORTIUM</a>
             <nav>
                 <ul>
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="consortium.html">Le Consortium</a></li>
-                    <li><a href="bar.html">Le Consor'Bar</a></li>
-                    <li><a href="equipe.html">Équipe</a></li>
-                    <li><a href="programme.html">Programme</a></li>
-                    <li><a href="menu.html">Menu</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="index.html"><i class="fa-solid fa-house"></i> Accueil</a></li>
+                    <li><a href="consortium.html"><i class="fa-solid fa-building-shield"></i> Le Consortium</a></li>
+                    <li><a href="bar.html"><i class="fa-solid fa-martini-glass-citrus"></i> Le Consort</a></li>
+                    <li><a href="equipe.html"><i class="fa-solid fa-users"></i> Équipe</a></li>
+                    <li><a href="programme.html"><i class="fa-solid fa-calendar-days"></i> Programme</a></li>
+                    <li><a href="menu.html"><i class="fa-solid fa-list"></i> Menu</a></li>
+                    <li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
     <section class="hero">
         <div class="hero-content">
-            <h1>Carte des boissons</h1>
-            <p>Découvrez notre sélection exclusive de cocktails, spiritueux et boissons préparés par notre mixologue Alex. Tous les prix sont en gil.</p>
+            <h1><i class="fa-solid fa-martini-glass"></i> Carte</h1>
+            <p>Découvrez notre sélection de cocktails néon, spiritueux rares et breuvages sans alcool conçus par notre mixologue Alex. Tous les prix sont en gil.</p>
         </div>
     </section>
     <main>
         <section>
             <div class="container">
-    <h2 style="text-align: center; margin-bottom: 3rem;">Notre Carte</h2>
-    <div class="menu-section">
-        <h2>Cocktails Signature</h2>
-        <div class="menu-list">
-            <div class="menu-item">
-                <img src="Media/Placeholder_Image.png" alt="Le Chasseur" class="menu-img">
-                <div>
-                    <h3>Le Chasseur</h3>
-                    <p>Lorem ipsum dolor sit amet, rhum, citron vert, épices, effet énergisant.</p>
-                    <span class="price">900 gil</span>
+                <div class="section-header">
+                    <h2>Notre carte néon</h2>
+                    <p>Une sélection de boissons pensée pour les chasseurs, les négociateurs et les noctambules de la station.</p>
+                </div>
+                <div class="menu-board">
+                    <div class="menu-section">
+                        <h3><i class="fa-solid fa-flask"></i> Cocktails signature</h3>
+                        <div class="menu-list">
+                            <div class="menu-item">
+                                <div>
+                                    <div class="menu-line">
+                                        <span class="menu-name">Afterglow</span>
+                                        <span class="menu-dots"></span>
+                                        <span class="price">90 <img src="Media/gil.webp" alt="gil" class="gil-icon"></span>
+                                    </div>
+                                    <p>Rhum sombre infusé au yuzu, sirop phosphorescent maison et glaçons néon. Signature des habitués du Consort.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <div>
+                                    <div class="menu-line">
+                                        <span class="menu-name">Cybertrace</span>
+                                        <span class="menu-dots"></span>
+                                        <span class="price">85 <img src="Media/gil.webp" alt="gil" class="gil-icon"></span>
+                                    </div>
+                                    <p>Gin sec, tonic aromatisé aux baies de chrome, vapeur de menthe cryogénique. Clair comme un log, brutal comme un contrat.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <div>
+                                    <div class="menu-line">
+                                        <span class="menu-name">Black ICE Mule</span>
+                                        <span class="menu-dots"></span>
+                                        <span class="price">95 <img src="Media/gil.webp" alt="gil" class="gil-icon"></span>
+                                    </div>
+                                    <p>Vodka distillée en orbite, ginger beer épicée, citron noir et éclat de glace activée. À réserver aux solos aguerris.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-section">
+                        <h3><i class="fa-solid fa-wine-bottle"></i> Boissons alcoolisées</h3>
+                        <div class="menu-list">
+                            <div class="menu-item">
+                                <div>
+                                    <div class="menu-line">
+                                        <span class="menu-name">Lager Chromée</span>
+                                        <span class="menu-dots"></span>
+                                        <span class="price">50 <img src="Media/gil.webp" alt="gil" class="gil-icon"></span>
+                                    </div>
+                                    <p>Bière pression légère brassée en station, reflets métalliques et amertume nette. Le choix des fixers pressés.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <div>
+                                    <div class="menu-line">
+                                        <span class="menu-name">Whisky Nocturne</span>
+                                        <span class="menu-dots"></span>
+                                        <span class="price">75 <img src="Media/gil.webp" alt="gil" class="gil-icon"></span>
+                                    </div>
+                                    <p>Single malt vieilli en fûts gravité zéro, notes de fumée froide et d’huile de moteur. Se déguste lentement.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <div>
+                                    <div class="menu-line">
+                                        <span class="menu-name">Rouge de la Ceinture</span>
+                                        <span class="menu-dots"></span>
+                                        <span class="price">70 <img src="Media/gil.webp" alt="gil" class="gil-icon"></span>
+                                    </div>
+                                    <p>Vin rouge sombre importé de la Ceinture, tanins serrés et arrière-goût minéral. Parfait pour discuter contrats.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-section">
+                        <h3><i class="fa-solid fa-mug-hot"></i> Boissons sans alcool</h3>
+                        <div class="menu-list">
+                            <div class="menu-item">
+                                <div>
+                                    <div class="menu-line">
+                                        <span class="menu-name">Neon Driver</span>
+                                        <span class="menu-dots"></span>
+                                        <span class="price">60 <img src="Media/gil.webp" alt="gil" class="gil-icon"></span>
+                                    </div>
+                                    <p>Jus d’orange sanguine, agrumes synthétiques et mousse tonique. Zéro alcool, 100% énergie de ruelle.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <div>
+                                    <div class="menu-line">
+                                        <span class="menu-name">Flux Vitamine</span>
+                                        <span class="menu-dots"></span>
+                                        <span class="price">45 <img src="Media/gil.webp" alt="gil" class="gil-icon"></span>
+                                    </div>
+                                    <p>Mélange pressé minute d’agrumes, pomme cryo et ananas. Le choix des netrunners entre deux runs.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <div>
+                                    <div class="menu-line">
+                                        <span class="menu-name">Soft Synth</span>
+                                        <span class="menu-dots"></span>
+                                        <span class="price">40 <img src="Media/gil.webp" alt="gil" class="gil-icon"></span>
+                                    </div>
+                                    <p>Cola, limonade ou tonic version synth, bulles calibrées et sucre contrôlé. Toujours au frais.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-section">
+                        <h3><i class="fa-solid fa-bowl-rice"></i> Accompagnements</h3>
+                        <div class="menu-list">
+                            <div class="menu-item">
+                                <div>
+                                    <div class="menu-line">
+                                        <span class="menu-name">Olives Netrunner</span>
+                                        <span class="menu-dots"></span>
+                                        <span class="price">25 <img src="Media/gil.webp" alt="gil" class="gil-icon"></span>
+                                    </div>
+                                    <p>Olives noires marinées dans une saumure aux épices rouges et vapeurs de gin. Idéales pour lire un contrat.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <div>
+                                    <div class="menu-line">
+                                        <span class="menu-name">Chips Chromées</span>
+                                        <span class="menu-dots"></span>
+                                        <span class="price">20 <img src="Media/gil.webp" alt="gil" class="gil-icon"></span>
+                                    </div>
+                                    <p>Chips épaisses, huile neutre, sel noir et poudre fumée. Le fond sonore de chaque mission.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <div>
+                                    <div class="menu-line">
+                                        <span class="menu-name">Mix Nomade</span>
+                                        <span class="menu-dots"></span>
+                                        <span class="price">30 <img src="Media/gil.webp" alt="gil" class="gil-icon"></span>
+                                    </div>
+                                    <p>Mélange de noix torréfiées, fruits secs et éclats salés sucrés. Pour les longues nuits aux consoles.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="menu-item">
-                <img src="Media/Placeholder_Image.png" alt="Prime Time" class="menu-img">
-                <div>
-                    <h3>Prime Time</h3>
-                    <p>Lorem ipsum dolor sit amet, gin, tonic, fruits rouges, rafraîchissant.</p>
-                    <span class="price">850 gil</span>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="Media/Placeholder_Image.png" alt="Consor’Bar Mule" class="menu-img">
-                <div>
-                    <h3>Consor’Bar Mule</h3>
-                    <p>Lorem ipsum dolor sit amet, vodka, ginger beer, citron, piquant.</p>
-                    <span class="price">950 gil</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="menu-section">
-        <h2>Boissons alcoolisées</h2>
-        <div class="menu-list">
-            <div class="menu-item">
-                <img src="Media/Placeholder_Image.png" alt="Bière pression" class="menu-img">
-                <div>
-                    <h3>Bière pression</h3>
-                    <p>Lorem ipsum dolor sit amet, lager blonde, mousse onctueuse.</p>
-                    <span class="price">500 gil</span>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="Media/Placeholder_Image.png" alt="Whisky" class="menu-img">
-                <div>
-                    <h3>Whisky</h3>
-                    <p>Lorem ipsum dolor sit amet, single malt, notes tourbées.</p>
-                    <span class="price">750 gil</span>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="Media/Placeholder_Image.png" alt="Vin sélectionné" class="menu-img">
-                <div>
-                    <h3>Vin sélectionné</h3>
-                    <p>Lorem ipsum dolor sit amet, rouge ou blanc, bouquet fruité.</p>
-                    <span class="price">700 gil</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="menu-section">
-        <h2>Boissons sans alcool</h2>
-        <div class="menu-list">
-            <div class="menu-item">
-                <img src="Media/Placeholder_Image.png" alt="Mocktail maison" class="menu-img">
-                <div>
-                    <h3>Mocktail maison</h3>
-                    <p>Lorem ipsum dolor sit amet, fruits frais, sirop maison, pétillant.</p>
-                    <span class="price">600 gil</span>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="Media/Placeholder_Image.png" alt="Jus de fruits frais" class="menu-img">
-                <div>
-                    <h3>Jus de fruits frais</h3>
-                    <p>Lorem ipsum dolor sit amet, orange, pomme, ananas, pressés minute.</p>
-                    <span class="price">450 gil</span>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="Media/Placeholder_Image.png" alt="Soda" class="menu-img">
-                <div>
-                    <h3>Soda</h3>
-                    <p>Lorem ipsum dolor sit amet, cola, limonade, tonic, au choix.</p>
-                    <span class="price">400 gil</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="menu-section">
-        <h2>Accompagnements</h2>
-        <div class="menu-list">
-            <div class="menu-item">
-                <img src="Media/Placeholder_Image.png" alt="Olives épicées" class="menu-img">
-                <div>
-                    <h3>Olives épicées</h3>
-                    <p>Lorem ipsum dolor sit amet, olives marinées, épices secrètes.</p>
-                    <span class="price">250 gil</span>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="Media/Placeholder_Image.png" alt="Chips artisanales" class="menu-img">
-                <div>
-                    <h3>Chips artisanales</h3>
-                    <p>Lorem ipsum dolor sit amet, pommes de terre, sel de mer.</p>
-                    <span class="price">200 gil</span>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="Media/Placeholder_Image.png" alt="Fruits secs" class="menu-img">
-                <div>
-                    <h3>Fruits secs</h3>
-                    <p>Lorem ipsum dolor sit amet, assortiment gourmand.</p>
-                    <span class="price">300 gil</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+        </section>
     </main>
     <footer>
         <div class="container">
-            &copy; 2025 Le Consor'Bar. Tous droits réservés.
+            &copy; 2025 Le Consort. Tous droits réservés.
         </div>
     </footer>
     <script src="main.js"></script>
